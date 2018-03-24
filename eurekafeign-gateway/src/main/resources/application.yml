@@ -1,0 +1,19 @@
+server:
+    port: 8765
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+zuul:
+    prefix: /api
+    routes:
+        account:
+            path: /firstservice/**
+            serviceId: eurekafeign-firstservice
+        customer:
+            path: /secondservice/**
+            serviceId: eurekafeign-secondservice
