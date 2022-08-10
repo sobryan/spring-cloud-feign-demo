@@ -15,6 +15,7 @@ public class GreetingController {
     @GetMapping(path = "/greeting",
             produces = { MediaType.APPLICATION_JSON_VALUE } )
     public Greeting getGreeting(@RequestParam("name")String name){
+        // some commment
         return greetingService.create(name);
     }
 
